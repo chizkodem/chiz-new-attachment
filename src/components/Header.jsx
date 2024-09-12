@@ -170,12 +170,6 @@ const Header = ({onToggleLightbox}) => {
       </div>
       <nav className="navbar">
         <ul>
-          {/* <li className="ar-hide">
-            <a href="#AR">
-              <img src="/nav icons/AR.svg" alt="" className="navbar-icons" />
-            </a>
-          </li> */}
-
           <div className="collapse" ref={collapseRef} onClick={unCheck}>
             <li>
               <a href="#AR" className="ar-sub">
@@ -209,7 +203,7 @@ const Header = ({onToggleLightbox}) => {
             </li>
             <li>
               <a href="#LMG">
-                <img src="/nav icons/LMG.svg" alt="" className="navbar-icons" />
+                <img src="/nav icons/LMG.png" alt="" className="navbar-icons" />
                 <span>LMG</span>
               </a>
             </li>
