@@ -169,7 +169,8 @@ body::before {
     2px 2px 0px var(--bottom-text-glow-color);
 }
 
-.navbar img {
+.navbar-icons,
+.navbar-extras {
   height: 40px;
   filter: var(--navbar-img);
 }
@@ -729,11 +730,11 @@ section .attach h2 {
 }
 
 @media (min-width: 1020px) {
-  .collapse-btn,
-  .ar-sub {
+  .collapse-btn {
     display: none;
   }
-  .toggle {
+  .toggle,
+  .checkbox-li {
     display: none;
   }
   .collapse span {

@@ -34,7 +34,7 @@
   font-size: 20px;
   border: none;
   border-radius: 5px;
-  color: white;
+  color: var(--plschange-color-2);
   background-color: transparent;
   position: relative;
 }
@@ -64,7 +64,7 @@
   text-shadow: -3px -3px 0px #1df2f0, 3px 3px 0px #e94be8;
   background-color: transparent;
   border: 3px solid rgb(0, 255, 213);
-  color: white;
+  color: var(--plschange-color-2);
 }
 
 .img-btns.active {

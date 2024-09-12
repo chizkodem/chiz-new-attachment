@@ -1,5 +1,4 @@
 import {useState, useRef} from "react";
-import "./Header.css";
 
 const Header = ({onToggleLightbox}) => {
   const [isChecked, setIsChecked] = useState(false);
@@ -34,7 +33,7 @@ const Header = ({onToggleLightbox}) => {
       );
       document.documentElement.style.setProperty(
         "--plschange-color",
-        "rgb(255, 255, 255)"
+        "rgb(233, 233, 233)"
       );
       document.documentElement.style.setProperty(
         "--plschange-color-2",
@@ -171,63 +170,67 @@ const Header = ({onToggleLightbox}) => {
       </div>
       <nav className="navbar">
         <ul>
-          <li className="ar-hide">
+          {/* <li className="ar-hide">
             <a href="#AR">
-              <img src="/nav icons/AR.png" alt="" />
+              <img src="/nav icons/AR.svg" alt="" className="navbar-icons" />
             </a>
-          </li>
+          </li> */}
 
           <div className="collapse" ref={collapseRef} onClick={unCheck}>
             <li>
               <a href="#AR" className="ar-sub">
-                <img src="/nav icons/AR.png" alt="" />
+                <img src="/nav icons/AR.svg" alt="" className="navbar-icons" />
                 <span>AR</span>
               </a>
             </li>
             <li>
               <a href="#SMG">
-                <img src="/nav icons/SMG.png" alt="" />
+                <img src="/nav icons/SMG.svg" alt="" className="navbar-icons" />
                 <span>SMG</span>
               </a>
             </li>
             <li>
               <a href="#SG">
-                <img src="/nav icons/SG.png" alt="" />
+                <img src="/nav icons/SG.svg" alt="" className="navbar-icons" />
                 <span>SG</span>
               </a>
             </li>
             <li>
               <a href="#MM">
-                <img src="/nav icons/MM.png" alt="" />
+                <img src="/nav icons/MM.svg" alt="" className="navbar-icons" />
                 <span>MM</span>
               </a>
             </li>
             <li>
               <a href="#SR">
-                <img src="/nav icons/SR.png" alt="" />
+                <img src="/nav icons/SR.svg" alt="" className="navbar-icons" />
                 <span>SR</span>
               </a>
             </li>
             <li>
               <a href="#LMG">
-                <img src="/nav icons/LMG.png" alt="" />
+                <img src="/nav icons/LMG.svg" alt="" className="navbar-icons" />
                 <span>LMG</span>
               </a>
             </li>
             <li>
               <a href="#2ND">
-                <img src="/nav icons/Secondary.png" alt="" />
+                <img
+                  src="/nav icons/Secondary.svg"
+                  alt=""
+                  className="navbar-icons"
+                />
                 <span>2ND</span>
               </a>
             </li>
             <li className="extras">
               <a href="#EXTRAS">
-                <img src="icons/extras.png" alt="" />
+                <img src="icons/extras.svg" alt="" className="navbar-extras" />
                 <span>extras</span>
               </a>
             </li>
           </div>
-          <li>
+          <li className="checkbox-li">
             <a href="#MORE">
               <input
                 id="checkbox"
