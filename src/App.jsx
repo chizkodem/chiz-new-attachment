@@ -14,14 +14,56 @@ const weaponListAr = {
     "AK-47",
     "AK-117",
     "ICR-1",
+    "ASM-10",
     "MADDOX",
+    "BK-57",
+    "DR-H",
+    "FFAR",
+    "FR-556",
+    "GRAU 5.56",
+    "HBRa3",
+    "KILO 141",
+    "KRIG 6",
+    "LAG 53",
+    "LK-24",
+    "M4",
+    "M13",
+    "M16",
+    "MAN-O-WAR",
+    "ODEN",
+    "TYPE-25",
   ],
   type: "AR",
   split: true,
 };
 
 const weaponListSmg = {
-  list: ["MSMC", "HG 40"],
+  list: [
+    "AGR 556",
+    "CBR4",
+    "CHICOM",
+    "CORDITE",
+    "CX9",
+    "FENNEC",
+    "GKS",
+    "HG 40",
+    "ISO",
+    "KSP",
+    "LAPA",
+    "MAC 10",
+    "MSMC",
+    "MX-9",
+    "OTS 9",
+    "PDW57",
+    "PP19-BIZON",
+    "PPSH-41",
+    "QQ9",
+    "QXR",
+    "RAZORBACK",
+    "RUS-79U",
+    "STRIKER 45",
+    "SWITCHBLADE",
+  ],
   type: "SMG",
   split: true,
 };
@@ -51,21 +93,26 @@ function App() {
     return () => {
       hiddenElements.forEach((el) => observer.unobserve(el));
     };
-  }, []);
+  }, []); // Add dependency array to run only on mount/unmount
 
   const [lightboxImage, setLightboxImage] = useState("");
   const [imgSrc, setImgSrc] = useState("");
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [revealLightbox, setTevealLightbox] = useState(false);
 
   const openLightbox = (gunName, attachSrc) => {
     const imageVariations = [
       `${attachSrc}${gunName}.jpg`,
-      `${attachSrc}${gunName}1.jpg`,
-      `${attachSrc}${gunName}2.jpg`,
+      `${attachSrc}${gunName} smg-type.jpg`,
+      `${attachSrc}${gunName} red-dot-type.jpg`,
+      `${attachSrc}${gunName} burst-type.jpg`,
+      `${attachSrc}${gunName} ar-type.jpg`,
+      `${attachSrc}${gunName} pin-point.jpg`,
     ];
     functionTest(imageVariations);
     document.addEventListener("click", (event) => {
       const lightBoxCon = document.getElementById("lightbox");
+      const loadingCover = document.getElementById("lightbox-cover");
 
       if (
         !event.target.id.includes("img") ||
@@ -73,6 +120,7 @@ function App() {
           !event.target.id.includes("img-btn"))
       ) {
         if (lightBoxCon) {
+          loadingCover.classList.remove("show");
           setIsLightboxOpen(false);
         }
       }
@@ -82,51 +130,24 @@ function App() {
     setIsLightboxOpen(true);
   };
 
-  const closeLightbox = () => {
-    setIsLightboxOpen(false);
-  };
-
   return (
     <>
+      <div
+        className={`lightbox-cover ${revealLightbox ? "show" : ""}`}
+        id="lightbox-cover"
+      ></div>
       <Lightbox
         gunName={lightboxImage}
         attachSrc={imgSrc}
         isOpen={isLightboxOpen}
       />
-      <Header />
+      <Header onToggleLightbox={setTevealLightbox} />
 
       <main className="main">
-        <div className="home-container" id="HOME"></div>
-        <section className="AR hidden" id="AR">
-          <div className="attach">
-            <h2>Assault Rifles</h2>
-            <Weapons gunList={weaponListAr} openLightbox={openLightbox} />
-          </div>
-        </section>
-        <section className="SMG hidden" id="SMG">
-          <div className="attach">
-            <h2>Submachine Gun</h2>
-            <Weapons gunList={weaponListSmg} openLightbox={openLightbox} />
-          </div>
-        </section>
-        <section className="SG hidden" id="SG">
-          <div className="attach">
-            <h2>Shot Gun</h2>
-            <Weapons gunList={weaponListSG} openLightbox={openLightbox} />
-          </div>
-        </section>
-        <section className="MM hidden" id="MM">
-          <div className="attach"></div>
-        </section>
-        <section className="SR hidden" id="SR">
-          <div className="attach"></div>
-        </section>
-        <section className="LMG hidden" id="LMG">
-          <div className="attach"></div>
-        </section>
-        <section className="2ND hidden" id="2ND">
-          <div className="attach"></div>
-        </section>
+        <section className="home-container" id="HOME"></section>
+        <Weapons gunList={weaponListAr} openLightbox={openLightbox} />
+        <Weapons gunList={weaponListSmg} openLightbox={openLightbox} />
+        <Weapons gunList={weaponListSG} openLightbox={openLightbox} />
       </main>
     </>
   );

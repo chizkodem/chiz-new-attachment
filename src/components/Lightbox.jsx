@@ -12,20 +12,22 @@ export const loadingImg = (gunName, attachSrc) => {
   image.src = src;
 
   image.onload = () => {
-    const lightboxContent = document.querySelector(".lightbox-content");
     const attachImg = document.getElementById("img");
+    const loadingCover = document.getElementById("lightbox-cover");
+    loadingCover.classList.add("show");
 
     setTimeout(() => {
       if (attachImg) {
         attachImg.classList.add("load");
-        lightboxContent.classList.add("test");
       }
 
       // Function to update image size based on viewport while maintaining aspect ratio
       const updateImageSize = () => {
         const attachImgLoad = document.querySelector(".attach-img.load");
         const lbImgCon = document.getElementById("lightbox-img-container");
-        if (attachImg) {
+        const loadingIcon = document.getElementById("loading-icon");
+        if (attachImgLoad) {
+          loadingIcon.style.display = "block";
           attachImgLoad.style.opacity = "100%";
         }
         if (attachImgLoad) {
@@ -48,9 +50,10 @@ export const loadingImg = (gunName, attachSrc) => {
           lbImgCon.style.height = `${newHeight}px`;
 
           setTimeout(() => {
+            loadingIcon.style.display = "none";
             attachImgLoad.style.width = `calc(${newWidth}px - 10px)`;
             attachImgLoad.style.height = `calc(${newHeight}px - 10px)`;
-          }, 300);
+          }, 500);
         }
       };
 
@@ -74,24 +77,34 @@ const Lightbox = ({gunName, attachSrc, isOpen}) => {
       loadingImg(gunName, attachSrc); // Trigger the function when component is mounted or `isOpen` changes
     }
   }, [isOpen]); // Only runs when `isOpen` changes
-  console.log(gunName, attachSrc, "testing");
+  // console.log(gunName, attachSrc, "testing");
 
   if (!isOpen) return null;
 
   return (
-    <div className="lightbox" id="lightbox">
-      <div className="lightbox-content">
-        <Lightboxbtn list={imgSrcs} gunName={gunName} attachSrc={attachSrc} />
-        <div className="lightbox-img-container" id="lightbox-img-container">
-          <img
-            src={`${attachSrc}${gunName}.jpg`}
-            alt="Selected Weapon"
-            className="attach-img"
-            id="img"
-          />
+    <>
+      <div className="lightbox" id="lightbox">
+        <div className="lightbox-content">
+          <Lightboxbtn list={imgSrcs} gunName={gunName} attachSrc={attachSrc} />
+          <div className="lightbox-img-container" id="lightbox-img-container">
+            <div className="loading-icon-container">
+              <img
+                src="icons/loading.png"
+                alt=""
+                className="loading-icon"
+                id="loading-icon"
+              />
+            </div>
+            <img
+              src={`${attachSrc}${gunName}.jpg`}
+              alt="Selected Weapon"
+              className="attach-img"
+              id="img"
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
