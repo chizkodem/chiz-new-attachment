@@ -174,7 +174,7 @@ const Header = ({onToggleLightbox}) => {
             <li>
               <a href="#AR" className="ar-sub">
                 <img
-                  src="https://i.imgur.com/UgtQQJo.png"
+                  src="https://raw.githubusercontent.com/chizkodem/images-storage/4fe072ecb16834ea422a580e7a2de0db4cedf836/AR.svg"
                   alt=""
                   className="navbar-icons"
                 />
@@ -184,7 +184,7 @@ const Header = ({onToggleLightbox}) => {
             <li>
               <a href="#SMG">
                 <img
-                  src="https://i.imgur.com/F6540bo.png"
+                  src="https://raw.githubusercontent.com/chizkodem/images-storage/4fe072ecb16834ea422a580e7a2de0db4cedf836/SMG.svg"
                   alt=""
                   className="navbar-icons"
                 />
@@ -194,7 +194,7 @@ const Header = ({onToggleLightbox}) => {
             <li>
               <a href="#SG">
                 <img
-                  src="https://i.imgur.com/pN1vgpV.png"
+                  src="https://raw.githubusercontent.com/chizkodem/images-storage/4fe072ecb16834ea422a580e7a2de0db4cedf836/SG.svg"
                   alt=""
                   className="navbar-icons"
                 />
@@ -204,7 +204,7 @@ const Header = ({onToggleLightbox}) => {
             <li>
               <a href="#MM">
                 <img
-                  src="https://i.imgur.com/445USKa.png"
+                  src="https://raw.githubusercontent.com/chizkodem/images-storage/4fe072ecb16834ea422a580e7a2de0db4cedf836/MM.svg"
                   alt=""
                   className="navbar-icons"
                 />
@@ -214,7 +214,7 @@ const Header = ({onToggleLightbox}) => {
             <li>
               <a href="#SR">
                 <img
-                  src="https://i.imgur.com/nH75oJY.png"
+                  src="https://raw.githubusercontent.com/chizkodem/images-storage/4fe072ecb16834ea422a580e7a2de0db4cedf836/SR.svg"
                   alt=""
                   className="navbar-icons"
                 />
@@ -224,7 +224,7 @@ const Header = ({onToggleLightbox}) => {
             <li>
               <a href="#LMG">
                 <img
-                  src="https://i.imgur.com/P4FSV89.png"
+                  src="https://raw.githubusercontent.com/chizkodem/images-storage/4fe072ecb16834ea422a580e7a2de0db4cedf836/LMG.svg"
                   alt=""
                   className="navbar-icons"
                 />
@@ -234,7 +234,7 @@ const Header = ({onToggleLightbox}) => {
             <li>
               <a href="#2ND">
                 <img
-                  src="https://i.imgur.com/WdJbBLs.png"
+                  src="https://raw.githubusercontent.com/chizkodem/images-storage/4fe072ecb16834ea422a580e7a2de0db4cedf836/Secondary.svg"
                   alt=""
                   className="navbar-icons"
                 />
