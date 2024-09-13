@@ -914,6 +914,9 @@ section .attach h2 {
 }
 
 @media (max-width: 1090px) {
+  .highLight.active a::before {
+    display: none;
+  }
   .ar-hide {
     display: none;
   }
