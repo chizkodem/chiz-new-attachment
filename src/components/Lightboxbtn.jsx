@@ -21,6 +21,7 @@ const callLoadImg = (gunName, attachSrc) => {
 };
 
 const getAttachName = (src) => {
+  if (!src) return "";
   if (src.includes("red-dot-type")) {
     return "red-dot";
   }
@@ -46,20 +47,22 @@ const Lightboxbtn = ({list, gunName, attachSrc}) => {
   useEffect(() => {
     if (!isLoaded.current) {
       const Srcs = list || []; // Ensure Srcs is an array
-      const newButtons = [];
+      const newButtons = Array(Srcs.length).fill(null); // Pre-fill an array with the same length
       let processedImages = 0;
+      console.log(newButtons);
 
-      Srcs.forEach((src) => {
+      Srcs.forEach((src, index) => {
         const image = new Image();
         image.src = src;
 
         image.onload = () => {
-          newButtons.push(src);
+          newButtons[index] = src; // Ensure images are stored at their original index
           processedImages++;
+          console.log(newButtons);
 
           // Only set the buttons once all images are either loaded or errored
           if (processedImages === Srcs.length) {
-            // console.log("set buttons");
+            console.log("All images processed, setting buttons:", newButtons);
             setButtons(newButtons);
           }
         };
@@ -69,8 +72,10 @@ const Lightboxbtn = ({list, gunName, attachSrc}) => {
 
           // Only create buttons if there are at least two successfully loaded images
           if (processedImages === Srcs.length) {
-            console.log("set buttons");
-
+            console.log(
+              "All images processed with errors, setting buttons:",
+              newButtons
+            );
             setButtons(newButtons);
           }
         };
@@ -78,27 +83,40 @@ const Lightboxbtn = ({list, gunName, attachSrc}) => {
 
       isLoaded.current = true;
     }
-  }, [list]); // Add selected to the dependency array
+  }, [list]);
+
+  const callFunctions = (src, index) => {
+    changeImg(src);
+    setSelected(index);
+    callLoadImg(gunName, attachSrc);
+  };
 
   const renderButtons = () => {
-    if (buttons.length === 1) return null;
+    const buttonsLength = [];
+    buttons.map((button) => {
+      if (button) buttonsLength.push(button);
+    });
 
-    return buttons.map((src, index) => (
-      <button
-        className={`img-btns img-btn-${index} ${
-          index === selected ? "active" : ""
-        }`}
-        key={index}
-        id={`img-btn-${index}`}
-        onClick={() => {
-          changeImg(src);
-          setSelected(index);
-          callLoadImg(gunName, attachSrc);
-        }}
-      >
-        {getAttachName(src)}
-      </button>
-    ));
+    if (buttonsLength.length === 1) return null;
+
+    return buttons.map((src, index) => {
+      if (!src) return null;
+
+      return (
+        <button
+          className={`img-btns img-btn-${index} ${
+            index === selected ? "active" : ""
+          }`}
+          key={index}
+          id={`img-btn-${index}`}
+          onClick={() => {
+            callFunctions(src, index);
+          }}
+        >
+          {getAttachName(src)}
+        </button>
+      );
+    });
   };
 
   return (
