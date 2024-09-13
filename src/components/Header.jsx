@@ -173,44 +173,68 @@ const Header = ({onToggleLightbox}) => {
           <div className="collapse" ref={collapseRef} onClick={unCheck}>
             <li>
               <a href="#AR" className="ar-sub">
-                <img src="/nav icons/AR.svg" alt="" className="navbar-icons" />
+                <img
+                  src="https://i.imgur.com/UgtQQJo.png"
+                  alt=""
+                  className="navbar-icons"
+                />
                 <span>AR</span>
               </a>
             </li>
             <li>
               <a href="#SMG">
-                <img src="/nav icons/SMG.svg" alt="" className="navbar-icons" />
+                <img
+                  src="https://i.imgur.com/F6540bo.png"
+                  alt=""
+                  className="navbar-icons"
+                />
                 <span>SMG</span>
               </a>
             </li>
             <li>
               <a href="#SG">
-                <img src="/nav icons/SG.svg" alt="" className="navbar-icons" />
+                <img
+                  src="https://i.imgur.com/pN1vgpV.png"
+                  alt=""
+                  className="navbar-icons"
+                />
                 <span>SG</span>
               </a>
             </li>
             <li>
               <a href="#MM">
-                <img src="/nav icons/MM.svg" alt="" className="navbar-icons" />
+                <img
+                  src="https://i.imgur.com/445USKa.png"
+                  alt=""
+                  className="navbar-icons"
+                />
                 <span>MM</span>
               </a>
             </li>
             <li>
               <a href="#SR">
-                <img src="/nav icons/SR.svg" alt="" className="navbar-icons" />
+                <img
+                  src="https://i.imgur.com/nH75oJY.png"
+                  alt=""
+                  className="navbar-icons"
+                />
                 <span>SR</span>
               </a>
             </li>
             <li>
               <a href="#LMG">
-                <img src="/nav icons/LMG.png" alt="" className="navbar-icons" />
+                <img
+                  src="https://i.imgur.com/P4FSV89.png"
+                  alt=""
+                  className="navbar-icons"
+                />
                 <span>LMG</span>
               </a>
             </li>
             <li>
               <a href="#2ND">
                 <img
-                  src="/nav icons/Secondary.svg"
+                  src="https://i.imgur.com/WdJbBLs.png"
                   alt=""
                   className="navbar-icons"
                 />
