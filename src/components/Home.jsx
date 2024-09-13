@@ -56,8 +56,6 @@ const Home = () => {
 
         <div class="home-vid">
           <iframe
-            width="560"
-            height="230"
             src="https://www.youtube.com/embed/TggiMHqrD5Y?controls=0"
             title="YouTube video player"
             frameborder="0"
