@@ -34,7 +34,7 @@ const getTitle = (type) => {
   if (type === "LMG") {
     return <h2>Light Machine Guns</h2>;
   }
-  if (type === "2ND") {
+  if (type === "HG") {
     return <h2>Secondary</h2>;
   }
   if (type === "EXTRAS") {
@@ -82,27 +82,26 @@ const highLight = (highLight) => {
     });
   };
 
-  if (highLight === "Assault Rifles") {
+  setTimeout(() => {
     clearCLasses();
-    navbarHighlight[0].classList.add("active");
-  } else if (highLight === "Submachine Gun") {
-    clearCLasses();
-    navbarHighlight[1].classList.add("active");
-  } else if (highLight === "Shotgun") {
-    clearCLasses();
-    navbarHighlight[2].classList.add("active");
-  } else if (highLight === "Marksman") {
-    clearCLasses();
-    navbarHighlight[3].classList.add("active");
-  } else if (highLight === "Sniper Rifles") {
-    clearCLasses();
-    navbarHighlight[4].classList.add("active");
-  } else if (highLight === "Light Machine Guns") {
-    clearCLasses();
-    navbarHighlight[5].classList.add("active");
-  } else {
-    clearCLasses();
-  }
+    if (highLight === "Assault Rifles") {
+      navbarHighlight[0].classList.add("active");
+    } else if (highLight === "Submachine Gun") {
+      navbarHighlight[1].classList.add("active");
+    } else if (highLight === "Shotgun") {
+      navbarHighlight[2].classList.add("active");
+    } else if (highLight === "Marksman") {
+      navbarHighlight[3].classList.add("active");
+    } else if (highLight === "Sniper Rifles") {
+      navbarHighlight[4].classList.add("active");
+    } else if (highLight === "Light Machine Guns") {
+      navbarHighlight[5].classList.add("active");
+    } else if (highLight === "Secondary") {
+      navbarHighlight[6].classList.add("active");
+    } else if (highLight === "Extras") {
+      navbarHighlight[7].classList.add("active");
+    }
+  }, 500);
 
   console.log(highLight);
 };
@@ -173,8 +172,13 @@ const Weapons = ({gunList, openLightbox}) => {
               id={`${gunList.type}-icons`}
             >
               {chunk.map((rifle) => (
-                <div className="icon hidden test" key={rifle}>
-                  <div className="img-container" id="img-container">
+                <div className={`icon hidden `} key={rifle}>
+                  <div
+                    className={`img-container ${
+                      rifle === "Peacekeeper" ? "Peacekeeper" : ""
+                    }`}
+                    id="img-container"
+                  >
                     <img
                       className={soloClass(gunList.type)}
                       src={imgIconSrc + rifle + ".jpg"}

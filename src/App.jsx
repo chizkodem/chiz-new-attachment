@@ -102,6 +102,18 @@ const weaponListLMG = {
   split: false,
 };
 
+const weaponListHG = {
+  list: ["50 GS", "DOBVRA", "J358", "L-CAR 9", "MACHINE PISTOL", "SHORTY"],
+  type: "HG",
+  split: false,
+};
+
+const EXTRAS = {
+  list: ["SENSI", "PERK"],
+  type: "EXTRAS",
+  split: false,
+};
+
 function App() {
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -136,6 +148,8 @@ function App() {
       `${attachSrc}${gunName} burst-type.jpg`,
       `${attachSrc}${gunName} ar-type.jpg`,
       `${attachSrc}${gunName} pin-point.jpg`,
+      `${attachSrc}${gunName} gyro.jpg`,
+      `${attachSrc}${gunName} sniper.jpg`,
     ];
     functionTest(imageVariations);
     document.addEventListener("click", (event) => {
@@ -179,6 +193,8 @@ function App() {
         <Weapons gunList={weaponListMM} openLightbox={openLightbox} />
         <Weapons gunList={weaponListSR} openLightbox={openLightbox} />
         <Weapons gunList={weaponListLMG} openLightbox={openLightbox} />
+        <Weapons gunList={weaponListHG} openLightbox={openLightbox} />
+        <Weapons gunList={EXTRAS} openLightbox={openLightbox} />
       </main>
     </>
   );

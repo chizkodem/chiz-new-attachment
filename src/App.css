@@ -324,7 +324,7 @@ body::before {
 .highLight.active a::before {
   content: "";
   position: absolute;
-  transform: translatex(-50%) translateY(-50%);
+  transform: translatex(-50%) translateY(-50%) rotate(0);
   top: 50%;
   left: 50%;
   width: 100%;
@@ -486,9 +486,13 @@ section .attach h2 {
 }
 
 .img-container span {
-  font-size: 1.5vw;
+  font-size: 1.8vw;
   margin: 10px 0;
   color: var(--plschange-color);
+}
+
+.Peacekeeper span {
+  font-size: 1.5vw;
 }
 
 #peacekeeper-text {
@@ -553,6 +557,9 @@ section .attach h2 {
     font-size: 1.2rem;
   }
   .img-container span {
+    font-size: 2.2vw;
+  }
+  .Peacekeeper span {
     font-size: 1.5vw;
   }
 }
@@ -853,6 +860,8 @@ section .attach h2 {
 .collapse {
   display: flex;
   justify-content: space-between;
+  width: 100%;
+  height: 100%;
   align-items: center;
   gap: 20px;
 }
@@ -924,7 +933,7 @@ section .attach h2 {
     display: flex;
     position: absolute;
     justify-content: space-around;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     width: 100%;
     height: 0px;
     gap: 10px;
@@ -945,12 +954,11 @@ section .attach h2 {
     gap: 10px;
     top: 0;
     left: 0;
-    padding: 20px;
-    margin-top: 100px;
-    margin-bottom: 100%;
   }
   .collapse li {
-    width: 150px;
+    min-width: 110px;
+    max-width: 150px;
+    width: 100%;
     padding: 10px;
     border: 3px solid var(--plschange-color);
     box-shadow: 0px 5px 10px -10px var(--bottom-glow-color),

@@ -232,7 +232,7 @@ const Header = ({onToggleLightbox}) => {
               </a>
             </li>
             <li className="highLight">
-              <a href="#2ND">
+              <a href="#HG">
                 <img
                   src="https://raw.githubusercontent.com/chizkodem/images-storage/4fe072ecb16834ea422a580e7a2de0db4cedf836/Secondary.svg"
                   alt=""

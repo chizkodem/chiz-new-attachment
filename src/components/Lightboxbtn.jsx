@@ -36,6 +36,12 @@ const getAttachName = (src) => {
   }
   if (src.includes("smg-type")) {
     return "smg-build";
+  }
+  if (src.includes("gyro")) {
+    return "gyro";
+  }
+  if (src.includes("sniper")) {
+    return "sniper";
   } else return "main";
 };
 
