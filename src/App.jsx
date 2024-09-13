@@ -1,5 +1,6 @@
 import "./App.css";
 import {useEffect, useState} from "react";
+import Home from "./components/Home.jsx";
 import Header from "./components/Header.jsx";
 import Weapons from "./components/Weapons.jsx";
 import Lightbox, {functionTest} from "./components/Lightbox.jsx";
@@ -74,6 +75,33 @@ const weaponListSG = {
   split: false,
 };
 
+const weaponListMM = {
+  list: ["KILO BOLT", "MK2", "SKS", "SP-R"],
+  type: "MM",
+  split: false,
+};
+
+const weaponListSR = {
+  list: ["DL Q33", "LOCUS", "LW3-TUNDRA"],
+  type: "SR",
+  split: false,
+};
+
+const weaponListLMG = {
+  list: [
+    "CHOPPER",
+    "DINGO",
+    "HADES",
+    "HOLGER 26",
+    "MG42",
+    "PKM",
+    "S36",
+    "UL736",
+  ],
+  type: "LMG",
+  split: false,
+};
+
 function App() {
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -144,10 +172,13 @@ function App() {
       <Header onToggleLightbox={setTevealLightbox} />
 
       <main className="main">
-        <section className="home-container" id="HOME"></section>
+        <Home />
         <Weapons gunList={weaponListAr} openLightbox={openLightbox} />
         <Weapons gunList={weaponListSmg} openLightbox={openLightbox} />
         <Weapons gunList={weaponListSG} openLightbox={openLightbox} />
+        <Weapons gunList={weaponListMM} openLightbox={openLightbox} />
+        <Weapons gunList={weaponListSR} openLightbox={openLightbox} />
+        <Weapons gunList={weaponListLMG} openLightbox={openLightbox} />
       </main>
     </>
   );

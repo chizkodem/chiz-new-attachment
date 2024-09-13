@@ -1,5 +1,5 @@
 import React from "react";
-import {useEffect} from "react";
+import {useEffect, useRef} from "react";
 
 const chunkArray = (array, size) => {
   const result = [];
@@ -73,7 +73,75 @@ const flexDirection = (type, split) => {
   }
 };
 
+const highLight = (highLight) => {
+  const navbarHighlight = document.querySelectorAll(".highLight");
+
+  const clearCLasses = () => {
+    navbarHighlight.forEach((highLight) => {
+      highLight.classList.remove("active");
+    });
+  };
+
+  if (highLight === "Assault Rifles") {
+    clearCLasses();
+    navbarHighlight[0].classList.add("active");
+  } else if (highLight === "Submachine Gun") {
+    clearCLasses();
+    navbarHighlight[1].classList.add("active");
+  } else if (highLight === "Shotgun") {
+    clearCLasses();
+    navbarHighlight[2].classList.add("active");
+  } else if (highLight === "Marksman") {
+    clearCLasses();
+    navbarHighlight[3].classList.add("active");
+  } else if (highLight === "Sniper Rifles") {
+    clearCLasses();
+    navbarHighlight[4].classList.add("active");
+  } else if (highLight === "Light Machine Guns") {
+    clearCLasses();
+    navbarHighlight[5].classList.add("active");
+  } else {
+    clearCLasses();
+  }
+
+  console.log(highLight);
+};
+
 const Weapons = ({gunList, openLightbox}) => {
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const sectionElement = sectionRef.current;
+
+    if (!sectionElement) return;
+
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === "class") {
+          if (sectionElement.classList.contains("show")) {
+            // Call your function here
+            // console.log(mutation.target.children[0].children[0].innerText);
+
+            // console.log("The section is now visible");
+            highLight(mutation.target.children[0].children[0].innerText);
+          } else {
+            console.log("test");
+
+            // highLight(mutation);
+          }
+        }
+      });
+    });
+
+    observer.observe(sectionElement, {
+      attributes: true, // Observe attribute changes
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   const imgIconSrc = `img/${gunList.type} icons/`;
   const imgAttachSrc = `attach/${gunList.type} attach/`;
   useEffectInstant();
@@ -91,7 +159,11 @@ const Weapons = ({gunList, openLightbox}) => {
 
   return (
     <>
-      <section className={`${gunList.type} hidden`} id={`${gunList.type}`}>
+      <section
+        className={`${gunList.type} hidden`}
+        id={`${gunList.type}`}
+        ref={sectionRef}
+      >
         <div className="attach">
           {getTitle(gunList.type)}
           {chunks.map((chunk, index) => (
@@ -101,19 +173,16 @@ const Weapons = ({gunList, openLightbox}) => {
               id={`${gunList.type}-icons`}
             >
               {chunk.map((rifle) => (
-                <div className="icon hidden" key={rifle}>
-                  <div
-                    className="img-container"
-                    id="img-container"
-                    onClick={() => {
-                      openLightbox(rifle, imgAttachSrc);
-                    }}
-                  >
+                <div className="icon hidden test" key={rifle}>
+                  <div className="img-container" id="img-container">
                     <img
                       className={soloClass(gunList.type)}
                       src={imgIconSrc + rifle + ".jpg"}
                       alt={rifle}
                       id="img-icon"
+                      onClick={() => {
+                        openLightbox(rifle, imgAttachSrc);
+                      }}
                     />
                     <span>{rifle}</span>
                   </div>

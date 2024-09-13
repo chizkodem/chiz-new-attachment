@@ -171,8 +171,8 @@ const Header = ({onToggleLightbox}) => {
       <nav className="navbar">
         <ul>
           <div className="collapse" ref={collapseRef} onClick={unCheck}>
-            <li>
-              <a href="#AR" className="ar-sub">
+            <li className="highLight">
+              <a href="#AR" className="ar-sub ">
                 <img
                   src="https://raw.githubusercontent.com/chizkodem/images-storage/4fe072ecb16834ea422a580e7a2de0db4cedf836/AR.svg"
                   alt=""
@@ -181,7 +181,7 @@ const Header = ({onToggleLightbox}) => {
                 <span>AR</span>
               </a>
             </li>
-            <li>
+            <li className="highLight">
               <a href="#SMG">
                 <img
                   src="https://raw.githubusercontent.com/chizkodem/images-storage/4fe072ecb16834ea422a580e7a2de0db4cedf836/SMG.svg"
@@ -191,7 +191,7 @@ const Header = ({onToggleLightbox}) => {
                 <span>SMG</span>
               </a>
             </li>
-            <li>
+            <li className="highLight">
               <a href="#SG">
                 <img
                   src="https://raw.githubusercontent.com/chizkodem/images-storage/4fe072ecb16834ea422a580e7a2de0db4cedf836/SG.svg"
@@ -201,7 +201,7 @@ const Header = ({onToggleLightbox}) => {
                 <span>SG</span>
               </a>
             </li>
-            <li>
+            <li className="highLight">
               <a href="#MM">
                 <img
                   src="https://raw.githubusercontent.com/chizkodem/images-storage/4fe072ecb16834ea422a580e7a2de0db4cedf836/MM.svg"
@@ -211,7 +211,7 @@ const Header = ({onToggleLightbox}) => {
                 <span>MM</span>
               </a>
             </li>
-            <li>
+            <li className="highLight">
               <a href="#SR">
                 <img
                   src="https://raw.githubusercontent.com/chizkodem/images-storage/4fe072ecb16834ea422a580e7a2de0db4cedf836/SR.svg"
@@ -221,7 +221,7 @@ const Header = ({onToggleLightbox}) => {
                 <span>SR</span>
               </a>
             </li>
-            <li>
+            <li className="highLight">
               <a href="#LMG">
                 <img
                   src="https://raw.githubusercontent.com/chizkodem/images-storage/4fe072ecb16834ea422a580e7a2de0db4cedf836/LMG.svg"
@@ -231,7 +231,7 @@ const Header = ({onToggleLightbox}) => {
                 <span>LMG</span>
               </a>
             </li>
-            <li>
+            <li className="highLight">
               <a href="#2ND">
                 <img
                   src="https://raw.githubusercontent.com/chizkodem/images-storage/4fe072ecb16834ea422a580e7a2de0db4cedf836/Secondary.svg"
@@ -241,7 +241,7 @@ const Header = ({onToggleLightbox}) => {
                 <span>2ND</span>
               </a>
             </li>
-            <li className="extras">
+            <li className="extras highLight">
               <a href="#EXTRAS">
                 <img src="icons/extras.svg" alt="" className="navbar-extras" />
                 <span>extras</span>
